@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TestApplication.Models.ManagementModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Management</h2>
+
+
+<form asp-controller="Movies" asp-action="Index" method="post">
+    <p>
+        Search : <input type="text" name="SearchString">
+        <input type="submit" value="Search" />
+    </p>
+</form>
+
+@if (Model != null && Model.Count > 0)
+{
+    <h3>Search Results</h3>
+
+    <table class="table" table-bordered table-striped table-md>
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Market
+                </th>
+                <th>
+                    State
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Market)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.State)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}

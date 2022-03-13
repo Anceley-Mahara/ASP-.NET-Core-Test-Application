@@ -1,0 +1,2 @@
+The two lambda functions on properties and management elasticsearch that will be triggered by the api gateway. The lambda function accepts search query from 
+api gateway and performs the elastic search, returning results max 25 that match the search string.  
