@@ -17,9 +17,10 @@ namespace TestApplication.Controllers
             _managementApiService = managementApiService;
         }
 
+        [System.Web.Mvc.ValidateInput(true)]
         public async Task<IActionResult> Index(string searchString)
         {
-            List<ManagementModel> searchResponse;
+            List<ManagementModel> searchResponse = new List<ManagementModel>();
             if (!string.IsNullOrWhiteSpace(searchString))
             {
                 searchResponse = await _managementApiService.searchManagement(searchString);
